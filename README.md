@@ -1,8 +1,5 @@
-# React + Vite
+# Dashboard Financeiro
+# React + TailwindCSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/GabrielMoreno0207/Dashboard-Financas/assets/88280712/f04a8f2d-7c2a-4cbe-894f-34c52c50ce39)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
