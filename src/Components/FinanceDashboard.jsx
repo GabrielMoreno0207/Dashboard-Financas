@@ -1,6 +1,8 @@
+// FinanceDashboard.js
 import React, { useState } from 'react';
 import { PieChart, Pie, LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell } from 'recharts';
 import ExpenseForm from './ExpenseForm';
+import DashboardCards from './DashboardCards';  // Importe o novo componente
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#FF1919'];
 
@@ -58,6 +60,8 @@ const FinanceDashboard = ({ persons }) => {
   return (
     <div className="container mx-auto p-4 bg-blue-300">
       <h2 className="text-3xl font-bold mb-6 text-center">Dashboard Financeiro Familiar</h2>
+
+      <DashboardCards handleAddExpense={handleAddExpense} persons={persons} />
 
       <div className="flex flex-col md:flex-row gap-8">
         {/* Gráfico de Pizza - Gastos Mensais por Pessoa */}
@@ -128,34 +132,28 @@ const FinanceDashboard = ({ persons }) => {
       <ExpenseForm onSubmit={handleAddExpense} persons={persons} />
 
       <div className="mt-6 bg-white">
-  <h3 className="text-lg font-semibold mb-4">Despesas</h3>
-  <table className="w-full border border-gray-300">
-    <thead>
-      <tr className="bg-gray-200">
-        <th className="p-2">Dia</th>
-        <th className="p-2">Pessoa</th>
-        <th className="p-2">Valor</th>
-        <th className="p-2">Descrição</th>
-      </tr>
-    </thead>
-    <tbody>
-      {expenses.map((expense, index) => (
-        <tr key={index} className="hover:bg-gray-100">
-          <td className="border p-2">{expense.day}</td>
-          <td className="border p-2">{persons[expense.person].name}</td>
-          <td className="border p-2">R${expense.amount}</td>
-          <td className="border p-2">{expense.description}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
-
-
-
-
-
+        <h3 className="text-lg font-semibold mb-4">Despesas</h3>
+        <table className="w-full border border-gray-300">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="p-2">Dia</th>
+              <th className="p-2">Pessoa</th>
+              <th className="p-2">Valor</th>
+              <th className="p-2">Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            {expenses.map((expense, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="border p-2">{expense.day}</td>
+                <td className="border p-2">{persons[expense.person].name}</td>
+                <td className="border p-2">R${expense.amount}</td>
+                <td className="border p-2">{expense.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
