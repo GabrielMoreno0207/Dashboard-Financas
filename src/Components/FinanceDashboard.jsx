@@ -1,10 +1,8 @@
-// FinanceDashboard.js
 import React, { useState } from 'react';
 import { PieChart, Pie, LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell } from 'recharts';
 import ExpenseForm from './ExpenseForm';
-import DashboardCards from './DashboardCards';  // Importe o novo componente
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#FF1919'];
+const COLORS = ['#8a4baf', '#26c6da', '#ffb22b', '#ff7043', '#00e676', '#ff5252'];
 
 const FinanceDashboard = ({ persons }) => {
   const [expenses, setExpenses] = useState([]);
@@ -58,10 +56,8 @@ const FinanceDashboard = ({ persons }) => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-blue-300">
+    <div className="container mx-auto p-4 bg-blue-300 font-poppins animate__animated animate__fadeIn">
       <h2 className="text-3xl font-bold mb-6 text-center">Dashboard Financeiro Familiar</h2>
-
-      <DashboardCards handleAddExpense={handleAddExpense} persons={persons} />
 
       <div className="flex flex-col md:flex-row gap-8">
         {/* Gráfico de Pizza - Gastos Mensais por Pessoa */}
@@ -129,8 +125,12 @@ const FinanceDashboard = ({ persons }) => {
         </div>
       </div>
       <br />
-      <ExpenseForm onSubmit={handleAddExpense} persons={persons} />
 
+      <div className="mt-6 bg-white p-4 rounded-md shadow-md w-"> {/* Ajuste na largura */}
+        <ExpenseForm onSubmit={handleAddExpense} persons={persons} />
+      </div>
+
+      {/* Tabela de Despesas */}
       <div className="mt-6 bg-white">
         <h3 className="text-lg font-semibold mb-4">Despesas</h3>
         <table className="w-full border border-gray-300">
@@ -154,6 +154,8 @@ const FinanceDashboard = ({ persons }) => {
           </tbody>
         </table>
       </div>
+
+      
     </div>
   );
 };
